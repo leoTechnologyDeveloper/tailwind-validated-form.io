@@ -7,36 +7,51 @@
     <title>Tailwind Form Validation</title>
     <!-- Script tailwind cdn -->
     <script src="https://cdn.tailwindcss.com"></script>
-
+    <!-- Links -->
+    <link rel="stylesheet" href="./css/spinner.css">
 </head>
 <body>
-    <h1 class="text-white bg-sky-900 shadow-lg shadow-slate-700 text-center py-5 font-bold text-3xl">Tailwind Validated Form</h1>
+    <h1 class="text-white bg-sky-900 shadow-lg shadow-slate-700 text-center py-3 font-bold text-3xl">Tailwind Validated Form</h1>
 
-   <main class="flex justify-center h-screen bg-[url('./images/fondo1.jpg')] bg-cover bg-center">
-    <form action="#" class="w-10/12 md:w-3/5 lg:w-2/5 h-5/5 center  bg-gray-800  flex justify-center items-center text-md  mt-10 rounded-md
-    rounded-md ">         
-        <div class="text-white w-5/6 h-5/6">
-            <label for="nombre" class="flex flex-col mb-7 inline-block  border border-gray-600 pt-4 p-2 rounded-md">Nombre
+   <main class="flex flex-col justify-center items-center  h-screen bg-[url('./images/fondo1.jpg')] bg-cover bg-center" id="main">
+    <form action="#" id="formulario" class="w-10/12 md:w-3/5 lg:w-2/5  center  bg-gray-800  flex flex-col justify-center items-center text-md  mt rounded-md
+    rounded-md h-screen">         
+        <div id="inputsContainer" class="text-white w-5/6 h-5/6  ">
+            <label for="nombre" class="flex flex-col mb-5 inline-block  border border-gray-600 pt-4 p-2 rounded-md">Nombre
                 <input type="text" name="nombre" id="nombre" placeholder="Escribe tu Nombre" class=" text-slate-900 mt-2">
             </label>
-            <label for="nombre" class="flex flex-col mb-5 inline-block   border border-gray-600 pt-4 p-2 rounded-md
-            rounded-md">Apellido
-                <input type="text" name="apellido" id="apellido" placeholder="Escribe tu Apellido"  class=" text-slate-900 mt-2">
+            <label for="asunto" class="flex flex-col mb-5 inline-block   border border-gray-600 pt-4 p-2 rounded-md
+            rounded-md">Asunto
+                <input type="text" name="asunto" id="asunto" placeholder="Escribe el asunto"  class=" text-slate-900 mt-2">
             </label>
             <label for="nombre" class="flex flex-col mb-5 inline-block   border border-gray-600 pt-4 p-2 rounded-md
             rounded-md">Correo Electrónico
-                <input type="text" name="correo" id="correo" placeholder="Escribe tu Correo Electrónico"  class=" text-slate-900 mt-2">
+                <input type="text" name="email" id="email" placeholder="Escribe tu Correo Electrónico"  class=" text-slate-900 mt-2">
             </label>
             <label for="nombre" class="flex flex-col mb-5 inline-block   border border-gray-600 pt-4 p-2 rounded-md
             rounded-md">Mensaje
                 <textarea name="mensaje" id="mensaje" cols="20" rows="4" placeholder="Escribe tu mensaje"  class=" text-slate-900 mt-2"></textarea>
             </label>
-            <div class="formButtons flex justify-between p-3 text-slate-900 font-bold text-lg">
-                <button type="submit" class="bg-lime-300 w-3/6 rounded-md ">Enviar</button>
+            <div id="formButtons" class="formButtons flex justify-between p-3 text-slate-900 font-bold text-lg p-6">
+                <button type="submit" class="bg-lime-300 w-3/6 rounded-md opacity-30" disabled>Enviar</button>
                 <button type="reset" class="bg-slate-200 w-2/6 rounded-md">Borrar</button>
             </div>
         </div>
     </form>
+    <!-- spinner -->
+          
+    <div class="hidden justify-center mt-10 ">
+        <div class="sk-chase">
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+        </div>
+    </div>
+
+    <!-- spinner End -->
 </main>
 
     
