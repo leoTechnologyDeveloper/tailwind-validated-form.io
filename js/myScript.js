@@ -12,6 +12,7 @@ const email = {
 }
 
 // variables de selección de elementos ---------------
+const main = document.querySelector("#main");
 const inputNombre = document.querySelector("#nombre");
 const inputAsunto = document.querySelector("#asunto");
 const inputEmail = document.querySelector("#email");
@@ -37,9 +38,10 @@ btnSubmit.addEventListener('click', function (e) {
       resetearFormulario();
       console.log(email);
       // mensajeEnviado(formulario);
-      mensajeEnviado(inputsContainer);
+      // mensajeEnviado(inputsContainer);
+      mensajeEnviado(main);
       setTimeout(() => {
-          const msgEnviado = formulario.querySelector(".msgEnviado");
+          const msgEnviado = main.querySelector(".msgEnviado");
           if (msgEnviado) {
               msgEnviado.remove();
          } 
@@ -156,9 +158,9 @@ function mensajeEnviado(referencia) {
 
   // Construyendo el mensaje en Html
   const mensajeEnviado = document.createElement("P");
-  mensajeEnviado.textContent = "El Formulario se ha enviado";
+  mensajeEnviado.textContent = "El Formulario se ha enviado Correctamente";
   // mensajeEnviado.classList.add("bg-green-400", "text-white",  "text-center", "p-2");
-   mensajeEnviado.classList.add("text-white",  "text-center", "p-6", "msgEnviado");
+   mensajeEnviado.classList.add("text-white",  "text-center", "p-6", "msgEnviado", "bg-sky-500/50",  "absolute", "w-1/4", "h-auto", "rounded-3xl", "font-bold", "text-2xl");
    // Por alguna razon en tailwind no funcionaba el color de fondo verde, entonces con javascript se puede personalizar asi
    mensajeEnviado.style.backgroundColor = "green";
   // se puede poner estilos atambien
