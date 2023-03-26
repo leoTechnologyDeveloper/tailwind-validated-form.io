@@ -11,6 +11,8 @@ const email = {
   mensaje : ""
 }
 
+const alertasActivas = [];
+
 // variables de selección de elementos ---------------
 const main = document.querySelector("#main");
 const inputNombre = document.querySelector("#nombre");
@@ -58,7 +60,7 @@ btnReset.addEventListener('click', function(e) {
   e.preventDefault();
   resetearFormulario();
   limpiarAlerta(formulario);
-  limpiarTodasLasAlertas(formulario);
+  limpiarTodasLasAlertas();
   comprobarEmail(email);
 });
 
@@ -119,14 +121,25 @@ function limpiarAlerta(referencia) {
 
 // Funcion 4 : Limpiando todas las alertas Activas
 
-function limpiarTodasLasAlertas(referencia) {
+function limpiarTodasLasAlertas() {
 
-do {
-  const alertaEnHtml = referencia.querySelector(".bg-red-600");
+// do {
+//   const alertaEnHtml = referencia.querySelector(".bg-red-600");
+//   if (alertaEnHtml) {
+//       alertaEnHtml.remove();
+//   } 
+// } while (!alertaEnHtml);
+alertasActivas.push(inputNombre.parentElement);
+alertasActivas.push(inputAsunto.parentElement);
+alertasActivas.push(inputEmail.parentElement);
+alertasActivas.push(inputMensaje.parentElement);
+
+alertasActivas.forEach(alert => {
+  const alertaEnHtml = alert.querySelector(".bg-red-600");
   if (alertaEnHtml) {
       alertaEnHtml.remove();
-  } 
-} while (!alertaEnHtml);
+  }
+})
 
 }
 
