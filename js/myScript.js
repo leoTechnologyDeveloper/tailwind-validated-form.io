@@ -57,6 +57,8 @@ btnSubmit.addEventListener('click', function (e) {
 btnReset.addEventListener('click', function(e) {
   e.preventDefault();
   resetearFormulario();
+  limpiarAlerta(formulario);
+  limpiarTodasLasAlertas(formulario);
   comprobarEmail(email);
 });
 
@@ -115,7 +117,20 @@ function limpiarAlerta(referencia) {
  } 
 }
 
-// Funcion 4 :  Patron validar Email
+// Funcion 4 : Limpiando todas las alertas Activas
+
+function limpiarTodasLasAlertas(referencia) {
+
+do {
+  const alertaEnHtml = referencia.querySelector(".bg-red-600");
+  if (alertaEnHtml) {
+      alertaEnHtml.remove();
+  } 
+} while (!alertaEnHtml);
+
+}
+
+// Funcion 5 :  Patron validar Email
 
 function validarEmail(email) {
   const regex =  /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/ ;
@@ -124,7 +139,7 @@ function validarEmail(email) {
   
 }
 
-// Funcion 5 :  Comprobar Email
+// Funcion 6 :  Comprobar Email
 
 function comprobarEmail(email) {
   if (Object.values(email).includes('')) {
@@ -141,7 +156,7 @@ function comprobarEmail(email) {
 }
 
 
-// Funcion 6 :  Resetear Formulario
+// Funcion 7 :  Resetear Formulario
 
 function resetearFormulario() {
   email.nombre = "";
@@ -152,7 +167,7 @@ function resetearFormulario() {
   comprobarEmail(email);
 }
 
-// Funcion 7 :  Crear mensaje Enviado
+// Funcion 8 :  Crear mensaje Enviado
 
 function mensajeEnviado(referencia) {
 
@@ -160,7 +175,7 @@ function mensajeEnviado(referencia) {
   const mensajeEnviado = document.createElement("P");
   mensajeEnviado.textContent = "El Formulario se ha enviado Correctamente";
   // mensajeEnviado.classList.add("bg-green-400", "text-white",  "text-center", "p-2");
-   mensajeEnviado.classList.add("text-white",  "text-center", "p-6", "msgEnviado", "bg-sky-500/50",  "absolute", "w-1/4", "h-auto", "rounded-3xl", "font-bold", "text-2xl");
+   mensajeEnviado.classList.add("text-white",  "text-center", "p-6", "msgEnviado", "bg-sky-500/50",  "absolute", "w-4/4", "h-auto", "rounded-3xl", "font-bold", "text-2xl");
    // Por alguna razon en tailwind no funcionaba el color de fondo verde, entonces con javascript se puede personalizar asi
    mensajeEnviado.style.backgroundColor = "green";
   // se puede poner estilos atambien
@@ -171,6 +186,5 @@ function mensajeEnviado(referencia) {
 
 
 // End Initial Function -------------------------------------
-
 
   }); 
